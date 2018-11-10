@@ -36,7 +36,7 @@ class App extends Component {
 class Entry extends Component {
   render() {
     return (
-      <div classname="Entry">
+      <div className="Entry">
         <img id="sprite" src={this.props.imagesrc} className="App-logo" alt="logo" />
         <p id="name">
           {this.props.name}
