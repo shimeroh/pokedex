@@ -20,7 +20,7 @@
   <sodipodi:namedview
      id="base"
      pagecolor="#ffffff"
-     bordercolor="#666666"
+     bordercolor="#000000"
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
@@ -54,7 +54,7 @@
      transform="translate(0,-752.36218)">
     <path
        sodipodi:type="arc"
-       style="fill:#ffcb05;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#191919;fill-opacity:1;fill-rule:nonzero;stroke:none"
        id="path2985"
        sodipodi:cx="150"
        sodipodi:cy="143.21428"
