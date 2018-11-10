@@ -8,7 +8,7 @@ var P = new Pokedex();
 var pokemonName;
 var pokemonSprite;
 
-P.resource("https://pokeapi.co/api/v2/pokemon/1/").then(function(response)
+/*P.resource("https://pokeapi.co/api/v2/pokemon/1/").then(function(response)
 {
   pokemonName = response.forms[0].name;
   console.log(pokemonName);
@@ -16,7 +16,7 @@ P.resource("https://pokeapi.co/api/v2/pokemon/1/").then(function(response)
   console.log(pokemonSprite);
   document.getElementById("test").innerHTML = pokemonName;
   document.getElementById("sprite").src = pokemonSprite;
-});
+});*/
 
 class App extends Component {
   render() {
@@ -34,13 +34,32 @@ class App extends Component {
 }
 
 class Entry extends Component {
+  
+  componentDidMount() {
+    const self = this;
+
+    P.resource("https://pokeapi.co/api/v2/pokemon/1/").then(function(response)
+    {
+      pokemonName = response.forms[0].name;
+      self.setState({ response: response });
+      console.log(pokemonName);
+      pokemonSprite = response.sprites.front_default;
+      console.log(pokemonSprite);
+      document.getElementById("test").innerHTML = pokemonName;
+      document.getElementById("sprite").src = pokemonSprite;
+    });
+  }
+
   render() {
     return (
-      <div className="Entry">
+      /*<div className="Entry">
         <img id="sprite" src={this.props.imagesrc} className="App-logo" alt="logo" />
         <p id="name">
           {this.props.name}
         </p>
+      </div>*/
+      <div>
+        {this.state && this.state.response.forms[0].name}
       </div>
     )
   }
