@@ -5,10 +5,17 @@ import './App.css';
 var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
 
+var pokemonName;
+var pokemonSprite;
+
 P.resource("https://pokeapi.co/api/v2/pokemon/1/").then(function(response)
 {
-  console.log(response.forms[0].name);
-  console.log(response.sprites.front_default);
+  pokemonName = response.forms[0].name;
+  console.log(pokemonName);
+  pokemonSprite = response.sprites.front_default;
+  console.log(pokemonSprite);
+  document.getElementById("test").innerHTML = pokemonName;
+  document.getElementById("sprite").src = pokemonSprite;
 });
 
 class App extends Component {
@@ -16,7 +23,7 @@ class App extends Component {
     return (
       <div className="App">
         <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+          <img id ="sprite" src={logo} className="App-logo" alt="logo" />
           <p id = "test">
             This is going to turn into a pokedex!
           </p>
