@@ -27,12 +27,7 @@ img {
 }
 
 div {
-  font-family: pokemon-hd;
-}
-
-@font-face{
-  font-family: pokemon-hd;
-  src: url(font.ttf);
+  font-family: 'Montserrat', sans-serif;
 }
 
 @keyframes App-logo-spin {
