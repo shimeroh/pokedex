@@ -72,6 +72,7 @@ class PokedexThumbnail extends Component {
   render() {
     return (
       <div id="Entry">
+        {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default} alt="sprite" />}
         <p>
           {this.state && this.state.response.forms[0].name}
         </p>
