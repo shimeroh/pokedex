@@ -32,16 +32,22 @@ div {
 
 @keyframes App-logo-spin {
   0% {
+    transform: translateY(50px);
+  }
+  5% {
     transform: translatey(50px);
   }
-  25% {
+  30% {
     transform: translateY(25px);
   }
   50% {
     transform: translateY(20px);
   }
-  75% {
-    transform: translateY(45px);
+  70% {
+    transform: translateY(25px);
+  }
+  95% {
+    transform: translateY(50px);
   }
   100% {
     transform: translateY(50px);
