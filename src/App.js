@@ -5,9 +5,6 @@ import './App.css';
 var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
 
-var pokemonName;
-var pokemonSprite;
-
 /*P.resource("https://pokeapi.co/api/v2/pokemon/1/").then(function(response)
 {
   pokemonName = response.forms[0].name;
@@ -22,44 +19,62 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <img id ="sprite" src={logo} className="App-logo" alt="logo" />
+          <br />
+          <img id ="sprite" src={logo} alt="logo" />
           <p id = "test">
             This is going to turn into a pokedex!
           </p>
-          <Entry name="bulbasaur">
-          </Entry>
+          <PokedexDisplay url="https://pokeapi.co/api/v2/pokemon/"/>
       </div>
     );
   }
 }
 
-class Entry extends Component {
+class PokedexDisplay extends Component {
+  componentDidMount() {
+    const self = this;
+
+    P.resource(this.props.url).then(function(response)
+    {
+      console.log(response);
+      self.setState({ response: response });
+    });
+  }
+
+  render() {
+    return (
+      <div id="display">
+        {this.state && this.state.response.results[1].url}
+        {this.state && <div>{this.state.response.results.map(pokemon => <PokedexThumbnail url={pokemon.url}/>)}</div>}
+      </div>
+    );
+  }
+}
+
+class PokedexThumbnail extends Component {
   
   componentDidMount() {
     const self = this;
 
-    P.resource("https://pokeapi.co/api/v2/pokemon/1/").then(function(response)
+    var pokemonName;
+    var pokemonSprite;
+
+    P.resource(this.props.url).then(function(response)
     {
       pokemonName = response.forms[0].name;
       self.setState({ response: response });
       console.log(pokemonName);
       pokemonSprite = response.sprites.front_default;
       console.log(pokemonSprite);
-      document.getElementById("test").innerHTML = pokemonName;
-      document.getElementById("sprite").src = pokemonSprite;
     });
   }
 
   render() {
     return (
-      /*<div className="Entry">
-        <img id="sprite" src={this.props.imagesrc} className="App-logo" alt="logo" />
-        <p id="name">
-          {this.props.name}
+      <div id="Entry">
+        <p>
+          {this.state && this.state.response.forms[0].name}
         </p>
-      </div>*/
-      <div>
-        {this.state && this.state.response.forms[0].name}
       </div>
     )
   }
