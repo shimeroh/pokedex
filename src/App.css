@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
+  animation: App-logo-spin infinite 0.5s linear;
   height: 40vmin;
 }
 
@@ -26,11 +26,29 @@ img {
   image-rendering: pixelated;
 }
 
+div {
+  font-family: pokemon-hd;
+}
+
+@font-face{
+  font-family: pokemon-hd;
+  src: url(font.ttf);
+}
+
 @keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+  0% {
+    transform: translatey(50px);
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: translateY(25px);
+  }
+  50% {
+    transform: translateY(20px);
+  }
+  75% {
+    transform: translateY(45px);
+  }
+  100% {
+    transform: translateY(50px);
   }
 }
