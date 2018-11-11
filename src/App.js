@@ -76,6 +76,7 @@ class PokedexThumbnail extends Component {
 
 class PokedexEntry extends Component{
   render() {
+    // Render a Material UI Card here
     console.log("Rendering " + this.props.info.forms[0].name + "'s info");
     return (
       <div id="overlay">
