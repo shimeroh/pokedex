@@ -42,32 +42,43 @@ class PokedexDisplay extends Component {
 }
 
 class PokedexThumbnail extends Component {
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
   
   componentDidMount() {
     const self = this;
 
-    var pokemonName;
-    var pokemonSprite;
-
     P.resource(this.props.url).then(function(response)
     {
-      pokemonName = response.forms[0].name;
       self.setState({ response: response });
-      console.log(pokemonName);
-      pokemonSprite = response.sprites.front_default;
-      console.log(pokemonSprite);
     });
+  }
+
+  handleClick(e) {
+    this.setState({ pokemonInfo: <PokedexEntry info={this.state.response}/>});
   }
 
   render() {
     return (
       <Grid item>
-        <button>
+        <button onClick={(e) => this.handleClick()}>
           {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />}
           <br />
           {this.state && this.state.response.forms[0].name}
         </button>
+        {this.state && this.state.pokemonInfo}
       </Grid>
+    )
+  }
+}
+
+class PokedexEntry extends Component{
+  render() {
+    console.log("Rendering " + this.props.info.forms[0].name + "'s info");
+    return (
+      <div></div>
     )
   }
 }
