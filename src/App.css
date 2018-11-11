@@ -3,7 +3,7 @@
 }
 
 .App-logo {
-  /*animation: App-logo-spin infinite 0.5s linear;*/
+  /*animation: PokemonJump infinite 0.5s linear;*/
   height: 20vmin;
 }
 
@@ -33,7 +33,7 @@ div {
 }
 
 html {
-  background-color: #282c34;
+  background-color: #303030;
 }
 
 ul, ol {
@@ -42,18 +42,21 @@ ul, ol {
 }
 
 li {
-  width: 40vmin;
-  min-height: 40vmin;
-  border: 1px solid #000000;
+  width: 25vmin;
   display: inline-block;
-  margin: 5px;
+  margin: 1vmin;
 }
 
-/*#Entry {
-  text-align: center;
-}*/
+button {
+  background-color: #424242;
+  border: none;
+  padding-bottom: 1vmin;
+  color: white;
+  font-size: 2vmin;
+  border-radius: 8px;
+}
 
-@keyframes App-logo-spin {
+@keyframes PokemonJump {
   0% {
     transform: translateY(50px);
   }

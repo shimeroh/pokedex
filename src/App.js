@@ -12,7 +12,7 @@ class App extends Component {
           <br />
           <img id ="sprite" src={logo} alt="logo" />
           <p id = "test">
-            This is going to turn into a pokedex!
+            This is going to turn into a pokedex soon!
           </p>
           <PokedexDisplay url="https://pokeapi.co/api/v2/pokemon/"/>
       </div>
@@ -61,10 +61,10 @@ class PokedexThumbnail extends Component {
   render() {
     return (
       <li id="Entry">
-        {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default} alt="sprite" />}
-        <p>
+        <button>
+          {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default} alt="sprite" />}
           {this.state && this.state.response.forms[0].name}
-        </p>
+        </button>
       </li>
     )
   }
