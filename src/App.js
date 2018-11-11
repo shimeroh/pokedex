@@ -78,7 +78,11 @@ class PokedexEntry extends Component{
   render() {
     console.log("Rendering " + this.props.info.forms[0].name + "'s info");
     return (
-      <div></div>
+      <div id="overlay">
+        <p>
+          Hey, it's an overlay for {this.props.info.forms[0].name}! 
+        </p>
+      </div>
     )
   }
 }
