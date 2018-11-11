@@ -11,9 +11,9 @@ class App extends Component {
     return (
       <div className="App">
           <br />
-          <img id ="sprite" src={logo} alt="logo" />
+          <img id ="HeaderImage" src={logo} alt="logo" />
           <p id = "test">
-            This is going to turn into a pokedex soon!
+            Welcome to Pokézu!
           </p>
           <PokedexDisplay url="https://pokeapi.co/api/v2/pokemon/"/>
       </div>

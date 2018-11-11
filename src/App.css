@@ -72,6 +72,10 @@ button:hover {
   background-color: #424242;
 }
 
+#HeaderImage {
+  height: 10vh;
+}
+
 @keyframes PokemonJump {
   0% {
     transform: translateY(50px);
