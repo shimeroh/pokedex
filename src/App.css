@@ -33,7 +33,7 @@ div {
 }
 
 html {
-  background-color: #303030;
+  background-color: #212121;
 }
 
 ul, ol {
@@ -44,16 +44,20 @@ ul, ol {
 li {
   width: 25vmin;
   display: inline-block;
-  margin: 1vmin;
+  margin: 2vmin;
 }
 
 button {
-  background-color: #424242;
+  background-color: #303030;
   border: none;
   padding-bottom: 1vmin;
   color: white;
   font-size: 2vmin;
   border-radius: 8px;
+}
+
+button:hover {
+  background-color: #424242;
 }
 
 @keyframes PokemonJump {
