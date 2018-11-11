@@ -34,7 +34,6 @@ class PokedexDisplay extends Component {
   render() {
     return (
       <div id="display">
-        {this.state && this.state.response.results[1].url}
         {this.state && <ul>{this.state.response.results.map(pokemon => <PokedexThumbnail url={pokemon.url}/>)}</ul>}
       </div>
     );
