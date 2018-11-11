@@ -3,8 +3,8 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 0.5s linear;
-  height: 40vmin;
+  /*animation: App-logo-spin infinite 0.5s linear;*/
+  height: 20vmin;
 }
 
 .App-header {
@@ -35,6 +35,18 @@ div {
 html {
   background-color: #282c34;
 }
+
+li {
+  width: 40vmin;
+  min-height: 40vmin;
+  border: 1px solid #000000;
+  display: inline-block;
+  margin: 5px;
+}
+
+/*#Entry {
+  text-align: center;
+}*/
 
 @keyframes App-logo-spin {
   0% {

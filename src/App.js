@@ -5,16 +5,6 @@ import './App.css';
 var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
 
-/*P.resource("https://pokeapi.co/api/v2/pokemon/1/").then(function(response)
-{
-  pokemonName = response.forms[0].name;
-  console.log(pokemonName);
-  pokemonSprite = response.sprites.front_default;
-  console.log(pokemonSprite);
-  document.getElementById("test").innerHTML = pokemonName;
-  document.getElementById("sprite").src = pokemonSprite;
-});*/
-
 class App extends Component {
   render() {
     return (
@@ -45,7 +35,7 @@ class PokedexDisplay extends Component {
     return (
       <div id="display">
         {this.state && this.state.response.results[1].url}
-        {this.state && <div>{this.state.response.results.map(pokemon => <PokedexThumbnail url={pokemon.url}/>)}</div>}
+        {this.state && <ul>{this.state.response.results.map(pokemon => <PokedexThumbnail url={pokemon.url}/>)}</ul>}
       </div>
     );
   }
@@ -71,12 +61,12 @@ class PokedexThumbnail extends Component {
 
   render() {
     return (
-      <div id="Entry">
+      <li id="Entry">
         {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default} alt="sprite" />}
         <p>
           {this.state && this.state.response.forms[0].name}
         </p>
-      </div>
+      </li>
     )
   }
 }
