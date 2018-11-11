@@ -4,7 +4,7 @@
 
 .App-logo {
   /*animation: PokemonJump infinite 0.5s linear;*/
-  height: 20vh;
+  height: 19vh;
 }
 
 .App-header {
@@ -38,11 +38,15 @@ html {
 
 ul, ol {
   padding: 0;
+  padding-right: 15px;
   margin: 0;
+  list-style: inside;
+  width: fit-content;
+  text-align: center;
 }
 
 li {
-  width: 21vh;
+  width: 22vh;
   display: inline-block;
   margin: 1vh;
 }

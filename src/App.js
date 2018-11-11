@@ -62,7 +62,7 @@ class PokedexThumbnail extends Component {
     return (
       <li id="Entry">
         <button>
-          {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default} alt="sprite" />}
+          {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />}
           <br />
           {this.state && this.state.response.forms[0].name}
         </button>
