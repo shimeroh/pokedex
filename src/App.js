@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './pokeball.svg';
 import './App.css';
+import Grid from '@material-ui/core/Grid';
 
 var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
@@ -34,7 +35,7 @@ class PokedexDisplay extends Component {
   render() {
     return (
       <div id="display">
-        {this.state && <ul>{this.state.response.results.map(pokemon => <PokedexThumbnail url={pokemon.url}/>)}</ul>}
+        {this.state && <Grid container spacing={16} justify={'space-evenly'} alignItems={'center'}>{this.state.response.results.map(pokemon => <PokedexThumbnail url={pokemon.url}/>)}</Grid>}
       </div>
     );
   }
@@ -60,13 +61,13 @@ class PokedexThumbnail extends Component {
 
   render() {
     return (
-      <li id="Entry">
+      <Grid item>
         <button>
           {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />}
           <br />
           {this.state && this.state.response.forms[0].name}
         </button>
-      </li>
+      </Grid>
     )
   }
 }
