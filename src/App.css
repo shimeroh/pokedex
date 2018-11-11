@@ -4,7 +4,7 @@
 
 .App-logo {
   /*animation: PokemonJump infinite 0.5s linear;*/
-  height: 20vmin;
+  height: 20vh;
 }
 
 .App-header {
@@ -42,17 +42,17 @@ ul, ol {
 }
 
 li {
-  width: 25vmin;
+  width: 25vh;
   display: inline-block;
-  margin: 1vmin;
+  margin: 1vh;
 }
 
 button {
   background-color: #303030;
   border: none;
-  padding-bottom: 1vmin;
+  padding-bottom: 1vh;
   color: white;
-  font-size: 2vmin;
+  font-size: 2vh;
   border-radius: 8px;
   outline-color: #424242;
   box-shadow: 0px 2px 5px #101010;
