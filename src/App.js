@@ -83,10 +83,16 @@ class PokedexEntry extends Component{
         <div id="card">
           <div id="cardheader">
             <img id="entrysprite" src={this.props.info.sprites.front_default} alt="sprite" />
-            <br />
-            {this.props.info.name}
+            <h2 id="pokemonname">{this.props.info.name}</h2>
           </div>
           <hr />
+          <h3>base stats</h3>
+          hp: {this.props.info.stats[5].base_stat} <br/>
+          attack: {this.props.info.stats[4].base_stat} <br/>
+          defence: {this.props.info.stats[3].base_stat} <br/>
+          special attack: {this.props.info.stats[2].base_stat} <br/>
+          special defense: {this.props.info.stats[1].base_stat} <br/>
+          speed: {this.props.info.stats[0].base_stat} <br/>
         </div>
       </div>
     )

@@ -99,8 +99,9 @@ button:hover {
   box-shadow: 0px 15px 25px #101010;
 }
 
-#cardheader {
-  padding-bottom: 10px;
+#pokemonname {
+  padding-top: 0px;
+  margin-top: 0;
 }
 
 #normal {
