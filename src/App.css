@@ -86,6 +86,17 @@ button:hover {
   padding: 0;
 }
 
+#card {
+  position: fixed;
+  width: 45vh;
+  height: 90%;
+  background-color: #303030;
+  border-radius: 8px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 @keyframes PokemonJump {
   0% {
     transform: translateY(50px);
