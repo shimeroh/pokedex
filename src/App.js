@@ -81,12 +81,12 @@ class PokedexEntry extends Component{
     return (
       <div id="overlay">
         <div id="card">
-          <div id={this.props.info.types[0].type.name}>
+          <div id="cardheader">
             <img id="entrysprite" src={this.props.info.sprites.front_default} alt="sprite" />
+            <br />
+            {this.props.info.name}
           </div>
           <hr />
-          <br />
-          {this.props.info.name}
         </div>
       </div>
     )
