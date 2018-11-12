@@ -81,6 +81,7 @@ class PokedexEntry extends Component{
         <div id="card">
           <div id="cardheader">
             <img id="entrysprite" src={this.props.info.sprites.front_default} alt="sprite" />
+            <br />
             {this.props.info.forms[0].name}
           </div>
           <hr />
