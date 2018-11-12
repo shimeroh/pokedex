@@ -66,7 +66,7 @@ class PokedexThumbnail extends Component {
         <button onClick={(e) => this.handleClick()}>
           {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />}
           <br />
-          {this.state && this.state.response.forms[0].name}
+          {this.state && this.state.response.name}
         </button>
         {this.state && this.state.pokemonInfo}
       </Grid>
@@ -76,15 +76,17 @@ class PokedexThumbnail extends Component {
 
 class PokedexEntry extends Component{
   render() {
+    console.log(this.props.info.types[0].type.name);
+
     return (
       <div id="overlay">
         <div id="card">
-          <div id="cardheader">
+          <div id={this.props.info.types[0].type.name}>
             <img id="entrysprite" src={this.props.info.sprites.front_default} alt="sprite" />
-            <br />
-            {this.props.info.forms[0].name}
           </div>
           <hr />
+          <br />
+          {this.props.info.name}
         </div>
       </div>
     )

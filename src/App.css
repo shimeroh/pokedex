@@ -96,13 +96,102 @@ button:hover {
   left: 50%;
   transform: translate(-50%, -50%);
   max-width: 500px;
-  box-shadow: 0px 2px 5px #101010;
+  box-shadow: 0px 15px 25px #101010;
 }
 
 #cardheader {
   border-radius: 8px 8px 0px 0px;
   background-color: red;
-  padding-bottom: 15px;
+}
+
+#normal {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #A7A97A, #DEDDC8);
+}
+
+#fighting {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #B1403A, #DFB4A4);
+}
+
+#flying {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #8691BE, #CFD2E1);
+}
+
+#poison {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #8B4D8E, #CEB8CF);
+}
+
+#ground {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #DFC169, #F3E9C6);
+}
+
+#rock {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #B8A23D, #E3DAB1);
+}
+
+#bug {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #AABB31, #DDE4B1);
+}
+
+#ghost {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #6B5995, #8DB8CF);
+}
+
+#steel {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #B1B7CD, #E1E4EB);
+}
+
+#fire {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #E4833F, #F5D1AD);
+}
+
+#water {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #6C8CBB, #C7D0E1);
+}
+
+#grass {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #83BE60, #D5E7C1);
+}
+
+#electric {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #F2CF41, #FAEEBA);
+}
+
+#psychic {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #E16486, #F3C9CD);
+}
+
+#ice {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #9BD3D2, #DAEEED);
+}
+
+#dragon {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #5064A1, #B6BCD4);
+}
+
+#dark {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #6F594B, #C2B6AA);
+}
+
+#fairy {
+  border-radius: 8px 8px 0px 0px;
+  background-image: linear-gradient(to bottom right, #E699AB, #F7DADE);
 }
 
 #entrysprite {
