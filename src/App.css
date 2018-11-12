@@ -88,13 +88,31 @@ button:hover {
 
 #card {
   position: fixed;
-  width: 45vh;
+  width: 70%;
   height: 90%;
   background-color: #303030;
   border-radius: 8px;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  max-width: 500px;
+  box-shadow: 0px 2px 5px #101010;
+}
+
+#cardheader {
+  border-radius: 8px 8px 0px 0px;
+  background-color: red;
+  padding-bottom: 15px;
+}
+
+#entrysprite {
+  width: 75%;
+}
+
+hr {
+  border-color: #a1a1a1;
+  margin-top: 0px;
+  margin-bottom: 5px;
 }
 
 @keyframes PokemonJump {
