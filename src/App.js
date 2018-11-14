@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './pokeball.svg';
 import './App.css';
 import Grid from '@material-ui/core/Grid';
+import Modal from 'react-modal';
 
 var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
@@ -44,7 +45,9 @@ class PokedexDisplay extends Component {
 class PokedexThumbnail extends Component {
   constructor(props){
     super(props);
-    this.handleClick = this.handleClick.bind(this);
+    this.state = { showModal: false };
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
   }
   
   componentDidMount() {
@@ -56,19 +59,24 @@ class PokedexThumbnail extends Component {
     });
   }
 
-  handleClick(e) {
-    this.setState({ pokemonInfo: <PokedexEntry response={this.state.response} />});
+  handleOpenModal() {
+    this.setState({ showModal: true });
+    //this.setState({ pokemonInfo: <PokedexEntry response={this.state.response} />});
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
   }
 
   render() {
     return (
       <Grid item>
-        <button onClick={(e) => this.handleClick()}>
-          {this.state && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />}
+        <button onClick={this.handleOpenModal}>
+          {this.state.response && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />}
           <br />
-          {this.state && this.state.response.name}
+          {this.state.response && this.state.response.name}
         </button>
-        {this.state && this.state.pokemonInfo}
+        <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal}>Hello! <button onClick={this.handleCloseModal}>close this</button></Modal>
       </Grid>
     )
   }
