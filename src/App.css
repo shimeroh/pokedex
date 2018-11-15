@@ -7,6 +7,11 @@
   height: 19vh;
 }
 
+.loadingIcon {
+  animation: Rotate infinite 2s linear;
+  height: 19vh;
+}
+
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -237,5 +242,14 @@ hr {
   }
   100% {
     transform: translateY(50px);
+  }
+}
+
+@keyframes Rotate {
+  from {
+    transform:rotate(0deg);
+  }
+  to {
+    transform:rotate(360deg);
   }
 }

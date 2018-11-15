@@ -73,13 +73,13 @@ class PokedexThumbnail extends Component {
     return (
       <Grid item>
         <button class="thumb" onClick={this.handleOpenModal}>
-          {this.state.response && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />}
+          {this.state.response ? <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />: <img id="sprite" className="loadingIcon" src={logo} alt="loading" />}
           <br />
-          {this.state.response && this.state.response.name}
+          {this.state.response ? this.state.response.name: "loading"}
         </button>
         {this.state.response &&
           <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" overlayClassName="overlay">
-          <button id="closebutton" onClick={this.handleCloseModal}><img class="close" src={closeButton}/></button>
+          <button id="closebutton" onClick={this.handleCloseModal}><img class="close" src={closeButton} alt="close"/></button>
             <div id="cardheader">
               <img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" />
               <h2 id="pokemonname">{this.state.response.name}</h2>
@@ -95,31 +95,6 @@ class PokedexThumbnail extends Component {
           </Modal>
         }
       </Grid>
-    )
-  }
-}
-
-class PokedexEntry extends Component{
-
-  render() {
-    return (
-      <div id="overlay">
-        <div id="card">
-          <button id="closebutton"><img src='./closebutton.png'/></button>
-          <div id="cardheader">
-            <img id="entrysprite" src={this.props.response.sprites.front_default} alt="sprite" />
-            <h2 id="pokemonname">{this.props.response.name}</h2>
-          </div>
-          <hr />
-          <h3>base stats</h3>
-          hp: {this.props.response.stats[5].base_stat} <br/>
-          attack: {this.props.response.stats[4].base_stat} <br/>
-          defence: {this.props.response.stats[3].base_stat} <br/>
-          special attack: {this.props.response.stats[2].base_stat} <br/>
-          special defense: {this.props.response.stats[1].base_stat} <br/>
-          speed: {this.props.response.stats[0].base_stat} <br/>
-        </div>
-      </div>
     )
   }
 }
