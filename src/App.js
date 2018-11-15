@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './pokeball.svg';
+import closeButton from './close.svg';
 import './App.css';
 import Grid from '@material-ui/core/Grid';
 import Modal from 'react-modal';
@@ -71,12 +72,28 @@ class PokedexThumbnail extends Component {
   render() {
     return (
       <Grid item>
-        <button onClick={this.handleOpenModal}>
+        <button class="thumb" onClick={this.handleOpenModal}>
           {this.state.response && <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />}
           <br />
           {this.state.response && this.state.response.name}
         </button>
-        <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal}>Hello! <button onClick={this.handleCloseModal}>close this</button></Modal>
+        {this.state.response &&
+          <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" overlayClassName="overlay">
+          <button id="closebutton" onClick={this.handleCloseModal}><img class="close" src={closeButton}/></button>
+            <div id="cardheader">
+              <img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" />
+              <h2 id="pokemonname">{this.state.response.name}</h2>
+            </div>
+            <hr />
+            <h3>base stats</h3>
+            hp: {this.state.response.stats[5].base_stat} <br/>
+            attack: {this.state.response.stats[4].base_stat} <br/>
+            defence: {this.state.response.stats[3].base_stat} <br/>
+            special attack: {this.state.response.stats[2].base_stat} <br/>
+            special defense: {this.state.response.stats[1].base_stat} <br/>
+            speed: {this.state.response.stats[0].base_stat} <br/>
+          </Modal>
+        }
       </Grid>
     )
   }
