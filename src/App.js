@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from './pokeball.svg';
 import closeButton from './close.svg';
+import infoButton from './info.svg';
 import './App.css';
 import Grid from '@material-ui/core/Grid';
 import Modal from 'react-modal';
@@ -9,14 +10,37 @@ var Pokedex = require('pokedex-promise-v2');
 var P = new Pokedex();
 
 class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = { showModal: false };
+    this.handleOpenModal = this.handleOpenModal.bind(this);
+    this.handleCloseModal = this.handleCloseModal.bind(this);
+  }
+
+  handleOpenModal() {
+    this.setState({ showModal: true });
+  }
+
+  handleCloseModal() {
+    this.setState({ showModal: false });
+  }
+
   render() {
     return (
       <div className="App">
           <header>
             <br />
+            <button class="infoButton" onClick={this.handleOpenModal}><img class="imageButton"src={infoButton} alt="info"/></button>
+              <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" overlayClassName="overlay">
+                <br />
+                light mode  <label class="switch">
+                  <input type="checkbox" />
+                  <span class="slider round"></span>
+                </label>
+              </Modal>
             <img id ="HeaderImage" src={logo} alt="logo" />
             <p id="HeaderText">
-              Pokézu
+              pokézu
             </p>
           </header>
           <div className="content">
@@ -66,7 +90,6 @@ class PokedexThumbnail extends Component {
 
   handleOpenModal() {
     this.setState({ showModal: true });
-    //this.setState({ pokemonInfo: <PokedexEntry response={this.state.response} />});
   }
 
   handleCloseModal() {
@@ -83,7 +106,7 @@ class PokedexThumbnail extends Component {
         </button>
         {this.state.response &&
           <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" overlayClassName="overlay">
-          <button id="closebutton" onClick={this.handleCloseModal}><img class="close" src={closeButton} alt="close"/></button>
+          <button id="closebutton" onClick={this.handleCloseModal}><img class="imageButton" src={closeButton} alt="close"/></button>
             <div id="cardheader">
               <img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" />
               <h2 id="pokemonname">{this.state.response.name}</h2>
