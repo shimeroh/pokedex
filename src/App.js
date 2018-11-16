@@ -12,12 +12,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-          <br />
-          <img id ="HeaderImage" src={logo} alt="logo" />
-          <p id = "test">
-            Welcome to Pokézu!
-          </p>
-          <PokedexDisplay url="https://pokeapi.co/api/v2/pokemon/"/>
+          <header>
+            <br />
+            <img id ="HeaderImage" src={logo} alt="logo" />
+            <p id="HeaderText">
+              Pokézu
+            </p>
+          </header>
+          <div className="content">
+            <PokedexDisplay url="https://pokeapi.co/api/v2/pokemon/"/>
+          </div>
       </div>
     );
   }
