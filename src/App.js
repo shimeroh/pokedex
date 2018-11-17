@@ -59,7 +59,7 @@ class App extends Component {
           <header>
             <br />
             <button class="infoButton" onClick={this.handleOpenModal}><img class="imageButton"src={infoButton} alt="info"/></button>
-              <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" overlayClassName="overlay">
+              <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" id="cardDark" overlayClassName="overlay">
                 <br />
                 light mode  <label class="switch">
                   <input type="checkbox" onClick={this.toggleLightMode} />
