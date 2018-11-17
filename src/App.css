@@ -201,7 +201,7 @@ li {
   z-index: 2;
 }
 
-#cardDark {
+.cardDark {
   text-align: center;
   position: fixed;
   width: 70%;

@@ -15,7 +15,7 @@ class App extends Component {
     this.state = { showModal: false, lightMode: false };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
-    this.toggleLightMode = this.toggleLightMode.bind(this);
+    /*this.toggleLightMode = this.toggleLightMode.bind(this);*/
   }
 
   handleOpenModal() {
@@ -26,7 +26,7 @@ class App extends Component {
     this.setState({ showModal: false });
   }
 
-  toggleLightMode() {
+  /*toggleLightMode() {
     var newLightMode = !this.state.lightMode;
     this.setState({lightMode: newLightMode});
     if(newLightMode) {
@@ -51,7 +51,7 @@ class App extends Component {
       for (var i = 0; i < cards.length; i++)
         cards[i].id = "cardDark";
     }
-  }
+  }*/
 
   render() {
     return (
@@ -59,10 +59,10 @@ class App extends Component {
           <header>
             <br />
             <button class="infoButton" onClick={this.handleOpenModal}><img class="imageButton"src={infoButton} alt="info"/></button>
-              <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" id="cardDark" overlayClassName="overlay">
+              <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="cardDark" id="cardDark" overlayClassName="overlay">
                 <br />
                 light mode  <label class="switch">
-                  <input type="checkbox" onClick={this.toggleLightMode} />
+                  <input type="checkbox" /*onClick={this.toggleLightMode}*/ />
                   <span class="slider round"></span>
                 </label>
               </Modal>
@@ -133,7 +133,7 @@ class PokedexThumbnail extends Component {
           {this.state.response ? this.state.response.name: "loading"}
         </button>
         {this.state.response &&
-          <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" id="cardDark" overlayClassName="overlay">
+          <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="cardDark" id="cardDark" overlayClassName="overlay">
           <button id="closebutton" onClick={this.handleCloseModal}><img class="imageButton" src={closeButton} alt="close"/></button>
             <div id="cardheader">
               <img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" />
