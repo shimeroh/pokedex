@@ -12,9 +12,10 @@ var P = new Pokedex();
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = { showModal: false };
+    this.state = { showModal: false, lightMode: true };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.toggleLightMode = this.toggleLightMode.bind(this);
   }
 
   handleOpenModal() {
@@ -23,6 +24,16 @@ class App extends Component {
 
   handleCloseModal() {
     this.setState({ showModal: false });
+  }
+
+  toggleLightMode() {
+    this.setState({lightMode: !this.state.lightMode});
+    if(this.state.lightMode) {
+      document.documentElement.style.background = "#ffffff";
+    }
+    else {
+      document.documentElement.style.background = "#212121";
+    }
   }
 
   render() {
@@ -34,7 +45,7 @@ class App extends Component {
               <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" overlayClassName="overlay">
                 <br />
                 light mode  <label class="switch">
-                  <input type="checkbox" />
+                  <input type="checkbox" onClick={this.toggleLightMode} />
                   <span class="slider round"></span>
                 </label>
               </Modal>
