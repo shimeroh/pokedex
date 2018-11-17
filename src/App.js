@@ -31,9 +31,25 @@ class App extends Component {
     this.setState({lightMode: newLightMode});
     if(newLightMode) {
       document.documentElement.style.background = "#ffffff";
+
+      var thumbs = document.querySelectorAll('.thumb');
+      for (var i = 0; i < thumbs.length; i++)
+        thumbs[i].id = "thumbLight";
+
+      var cards = document.querySelectorAll('.card');
+      for (var i = 0; i < cards.length; i++)
+        cards[i].id = "cardLight";
     }
     else {
       document.documentElement.style.background = "#212121";
+
+      var thumbs = document.querySelectorAll('.thumb');
+      for (var i = 0; i < thumbs.length; i++)
+        thumbs[i].id = "thumbDark";
+
+      var cards = document.querySelectorAll('.card');
+      for (var i = 0; i < cards.length; i++)
+        cards[i].id = "cardDark";
     }
   }
 
@@ -111,13 +127,13 @@ class PokedexThumbnail extends Component {
   render() {
     return (
       <Grid item>
-        <button class="thumb" onClick={this.handleOpenModal}>
+        <button class="thumb" id="thumbDark" onClick={this.handleOpenModal}>
           {this.state.response ? <img id="sprite" className="App-logo" src={this.state.response.sprites.front_default || logo} alt="sprite" />: <img id="sprite" className="loadingIcon" src={logo} alt="loading" />}
           <br />
           {this.state.response ? this.state.response.name: "loading"}
         </button>
         {this.state.response &&
-          <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" overlayClassName="overlay">
+          <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="card" id="cardDark" overlayClassName="overlay">
           <button id="closebutton" onClick={this.handleCloseModal}><img class="imageButton" src={closeButton} alt="close"/></button>
             <div id="cardheader">
               <img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" />
