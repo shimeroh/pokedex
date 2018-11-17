@@ -12,7 +12,7 @@ var P = new Pokedex();
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = { showModal: false, lightMode: true };
+    this.state = { showModal: false, lightMode: false };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.toggleLightMode = this.toggleLightMode.bind(this);
@@ -27,8 +27,9 @@ class App extends Component {
   }
 
   toggleLightMode() {
-    this.setState({lightMode: !this.state.lightMode});
-    if(this.state.lightMode) {
+    var newLightMode = !this.state.lightMode;
+    this.setState({lightMode: newLightMode});
+    if(newLightMode) {
       document.documentElement.style.background = "#ffffff";
     }
     else {
