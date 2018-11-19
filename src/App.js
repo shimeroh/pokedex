@@ -138,7 +138,7 @@ class PokedexThumbnail extends Component {
             <div id="cardheader">
               <img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" />
               <h2 id="pokemonname">{this.state.response.name}</h2>
-              {this.state.response.types.length === 1? <div id={this.state.response.types[0].type.name}>{this.state.response.types[0].type.name}</div>: <div><div id={this.state.response.types[1].type.name}>{this.state.response.types[1].type.name}</div>  <div id={this.state.response.types[0].type.name}>{this.state.response.types[0].type.name}</div></div>}
+              {this.state.response.types.length === 1? <div class="type" id={this.state.response.types[0].type.name}>{this.state.response.types[0].type.name}</div>: <div><div class="type" id={this.state.response.types[1].type.name}>{this.state.response.types[1].type.name}</div>  <div class="type" id={this.state.response.types[0].type.name}>{this.state.response.types[0].type.name}</div></div>}
             </div>
             <hr />
             <h3>base stats</h3>

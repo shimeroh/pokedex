@@ -248,112 +248,84 @@ li {
   margin-top: 0;
 }
 
-#normal {
+.type {
   border-radius: 8px;
-  background-image: linear-gradient(to bottom right, #757F9A, #D7DDE8);
   display: inline-block;
+  font-size: 1.9vh;
+  padding: 5px;
+  box-shadow: 0px 2px 5px #101010;
+}
+
+#normal {
+  background-image: linear-gradient(to bottom right, #757F9A, #D7DDE8);
 }
 
 #fighting {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #D1913C, #FFD194);
-  display: inline-block;
 }
 
 #flying {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #8691BE, #6DD5FA);
-  display: inline-block;
 }
 
 #poison {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #FF0099, #493240);
-  display: inline-block;
 }
 
 #ground {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #DFC169, #603813);
-  display: inline-block;
 }
 
 #rock {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #EACDA3, #D6AE7B);
-  display: inline-block;
 }
 
 #bug {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #3CA55C, #B5AC49);
-  display: inline-block;
 }
 
 #ghost {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #614385, #516395);
-  display: inline-block;
 }
 
 #steel {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #BBD2C5, #536976);
-  display: inline-block;
 }
 
 #fire {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #F12711, #F5AF19);
-  display: inline-block;
 }
 
 #water {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #2193B0, #6DD5ED);
-  display: inline-block;
 }
 
 #grass {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #56AB2F, #A8E063);
-  display: inline-block;
 }
 
 #electric {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #F2CF41, #FFFC00);
-  display: inline-block;
 }
 
 #psychic {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #EECDA3, #EF629F);
-  display: inline-block;
 }
 
 #ice {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #83A4D4, #B6FBFF);
-  display: inline-block;
 }
 
 #dragon {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #8E2DE2, #4A00E0);
-  display: inline-block;
 }
 
 #dark {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #0F2027, #2C5364);
-  display: inline-block;
 }
 
 #fairy {
-  border-radius: 8px;
   background-image: linear-gradient(to bottom right, #EE9CA7, #FFDDE1);
-  display: inline-block;
 }
 
 #entrysprite {
