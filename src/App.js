@@ -12,7 +12,7 @@ var P = new Pokedex();
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = { showModal: false, lightMode: false, showInfoModal: false};
+    this.state = { showModal: false, lightMode: false, showInfoModal: false };
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
     this.handleOpenInfoModal = this.handleOpenInfoModal.bind(this);
@@ -28,8 +28,15 @@ class App extends Component {
     this.setState({ showModal: false });
   }
 
-  handleOpenInfoModal() {
+  handleOpenInfoModal(url) {
     this.setState({ showInfoModal: true });
+
+    const self = this;
+
+    P.resource(url).then(function(response)
+    {
+      self.setState({ response: response });
+    });
   }
 
   handleCloseInfoModal() {
@@ -79,22 +86,25 @@ class App extends Component {
           </Modal>
 
           {/* Pokedex Info Modal */}
+          {this.state.response &&
           <Modal isOpen={this.state.showInfoModal} onRequestClose={this.handleCloseInfoModal} className="cardDark" id="cardDark" overlayClassName="overlay">
-          <button id="closebutton" onClick={this.handleCloseInfoModal}><img class="imageButton" src={closeButton} alt="close"/></button>
-          <div id="cardheader">
-            {/*<img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" /*/}
-            <h2 id="pokemonname">Test</h2>
-            <br />
-          </div>
-          <hr />
-          <h3>base stats</h3>
-          hp:<br/>
-          attack:<br/>
-          defence:<br/>
-          special attack:<br/>
-          special defense:<br/>
-          speed:<br/>
+            <button id="closebutton" onClick={this.handleCloseInfoModal}><img class="imageButton" src={closeButton} alt="close"/></button>
+            <div id="cardheader">
+              <img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" />
+              <h2 id="pokemonname">{this.state.response.name}</h2>
+              {this.state.response.types.length === 1? <div class="type" id={this.state.response.types[0].type.name}>{this.state.response.types[0].type.name}</div>: <div><div class="type" id={this.state.response.types[1].type.name}>{this.state.response.types[1].type.name}</div>  <div class="type" id={this.state.response.types[0].type.name}>{this.state.response.types[0].type.name}</div></div>}
+              <br />
+            </div>
+            <hr />
+            <h3>base stats</h3>
+            hp: {this.state.response.stats[5].base_stat} <br/>
+            attack: {this.state.response.stats[4].base_stat} <br/>
+            defence: {this.state.response.stats[3].base_stat} <br/>
+            special attack: {this.state.response.stats[2].base_stat} <br/>
+            special defense: {this.state.response.stats[1].base_stat} <br/>
+            speed: {this.state.response.stats[0].base_stat} <br/>
           </Modal>
+          }
 
           <img id ="HeaderImage" src={logo} alt="logo" />
           <p id="HeaderText">
@@ -149,7 +159,7 @@ class PokedexThumbnail extends Component {
 
   handleOpenModal() {
     //this.setState({ showModal: true });
-    this.props.modal();
+    this.props.modal(this.props.url);
   }
 
   handleCloseModal() {
