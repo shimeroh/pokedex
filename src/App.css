@@ -216,6 +216,7 @@ li {
   outline: 0;
   z-index: 3;
   color: white;
+  overflow-y: scroll;
 }
 
 #cardLight {
