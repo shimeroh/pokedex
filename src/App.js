@@ -143,27 +143,11 @@ class PokedexDisplay extends Component {
 class PokedexThumbnail extends Component {
   constructor(props){
     super(props);
-    this.state = { showModal: false };
     this.handleOpenModal = this.handleOpenModal.bind(this);
-    this.handleCloseModal = this.handleCloseModal.bind(this);
-  }
-  
-  componentDidMount() {
-    const self = this;
-
-    P.resource(this.props.url).then(function(response)
-    {
-      self.setState({ response: response });
-    });
   }
 
   handleOpenModal() {
-    //this.setState({ showModal: true });
     this.props.modal(this.props.url);
-  }
-
-  handleCloseModal() {
-    this.setState({ showModal: false });
   }
 
   render() {
@@ -174,25 +158,6 @@ class PokedexThumbnail extends Component {
           <br />
           {this.state.response ? this.state.response.name: "loading"}
         </button>
-        {/*this.state.response &&
-          <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="cardDark" id="cardDark" overlayClassName="overlay">
-          <button id="closebutton" onClick={this.handleCloseModal}><img class="imageButton" src={closeButton} alt="close"/></button>
-            <div id="cardheader">
-              <img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" />
-              <h2 id="pokemonname">{this.state.response.name}</h2>
-              {this.state.response.types.length === 1? <div class="type" id={this.state.response.types[0].type.name}>{this.state.response.types[0].type.name}</div>: <div><div class="type" id={this.state.response.types[1].type.name}>{this.state.response.types[1].type.name}</div>  <div class="type" id={this.state.response.types[0].type.name}>{this.state.response.types[0].type.name}</div></div>}
-              <br />
-            </div>
-            <hr />
-            <h3>base stats</h3>
-            hp: {this.state.response.stats[5].base_stat} <br/>
-            attack: {this.state.response.stats[4].base_stat} <br/>
-            defence: {this.state.response.stats[3].base_stat} <br/>
-            special attack: {this.state.response.stats[2].base_stat} <br/>
-            special defense: {this.state.response.stats[1].base_stat} <br/>
-            speed: {this.state.response.stats[0].base_stat} <br/>
-          </Modal>
-        */}
       </Grid>
     )
   }
