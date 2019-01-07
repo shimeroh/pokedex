@@ -143,7 +143,17 @@ class PokedexDisplay extends Component {
 class PokedexThumbnail extends Component {
   constructor(props){
     super(props);
+    this.state = { showModal: false };
     this.handleOpenModal = this.handleOpenModal.bind(this);
+  }
+  
+  componentDidMount() {
+    const self = this;
+
+    P.resource(this.props.url).then(function(response)
+    {
+      self.setState({ response: response });
+    });
   }
 
   handleOpenModal() {
