@@ -12,9 +12,11 @@ var P = new Pokedex();
 class App extends Component {
   constructor(props){
     super(props);
-    this.state = { showModal: false, lightMode: false };
+    this.state = { showModal: false, lightMode: false, showInfoModal: false};
     this.handleOpenModal = this.handleOpenModal.bind(this);
     this.handleCloseModal = this.handleCloseModal.bind(this);
+    this.handleOpenInfoModal = this.handleOpenInfoModal.bind(this);
+    this.handleCloseInfoModal = this.handleCloseInfoModal.bind(this);
     /*this.toggleLightMode = this.toggleLightMode.bind(this);*/
   }
 
@@ -24,6 +26,14 @@ class App extends Component {
 
   handleCloseModal() {
     this.setState({ showModal: false });
+  }
+
+  handleOpenInfoModal() {
+    this.setState({ showInfoModal: true });
+  }
+
+  handleCloseInfoModal() {
+    this.setState({ showInfoModal: false });
   }
 
   /*toggleLightMode() {
@@ -57,22 +67,42 @@ class App extends Component {
     return (
       <div className="App">
           <header>
+          <br />
+          <button class="infoButton" onClick={this.handleOpenModal}><img class="imageButton"src={infoButton} alt="info"/></button>
+          {/* Settings and Info Modal */}
+          <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="cardDark" id="cardDark" overlayClassName="overlay">
             <br />
-            <button class="infoButton" onClick={this.handleOpenModal}><img class="imageButton"src={infoButton} alt="info"/></button>
-              <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="cardDark" id="cardDark" overlayClassName="overlay">
-                <br />
-                light mode  <label class="switch">
-                  <input type="checkbox" /*onClick={this.toggleLightMode}*/ />
-                  <span class="slider round"></span>
-                </label>
-              </Modal>
-            <img id ="HeaderImage" src={logo} alt="logo" />
-            <p id="HeaderText">
-              pokézu
-            </p>
+            light mode  <label class="switch">
+            <input type="checkbox" /*onClick={this.toggleLightMode}*/ />
+            <span class="slider round"></span>
+            </label>
+          </Modal>
+
+          {/* Pokedex Info Modal */}
+          <Modal isOpen={this.state.showInfoModal} onRequestClose={this.handleCloseInfoModal} className="cardDark" id="cardDark" overlayClassName="overlay">
+          <button id="closebutton" onClick={this.handleCloseInfoModal}><img class="imageButton" src={closeButton} alt="close"/></button>
+          <div id="cardheader">
+            {/*<img id="entrysprite" src={this.state.response.sprites.front_default} alt="sprite" /*/}
+            <h2 id="pokemonname">Test</h2>
+            <br />
+          </div>
+          <hr />
+          <h3>base stats</h3>
+          hp:<br/>
+          attack:<br/>
+          defence:<br/>
+          special attack:<br/>
+          special defense:<br/>
+          speed:<br/>
+          </Modal>
+
+          <img id ="HeaderImage" src={logo} alt="logo" />
+          <p id="HeaderText">
+            pokézu
+          </p>
           </header>
           <div className="content">
-            <PokedexDisplay url="https://pokeapi.co/api/v2/pokemon/"/>
+            <PokedexDisplay url="https://pokeapi.co/api/v2/pokemon/" modalOpen={this.handleOpenInfoModal}/>
           </div>
       </div>
     );
@@ -80,6 +110,7 @@ class App extends Component {
 }
 
 class PokedexDisplay extends Component {
+
   componentDidMount() {
     const self = this;
 
@@ -93,7 +124,7 @@ class PokedexDisplay extends Component {
   render() {
     return (
       <div id="display">
-        {this.state && <Grid container spacing={16} justify={'space-evenly'} alignItems={'center'}>{this.state.response.results.map(pokemon => <PokedexThumbnail url={pokemon.url}/>)}</Grid>}
+        {this.state && <Grid container spacing={16} justify={'space-evenly'} alignItems={'center'}>{this.state.response.results.map(pokemon => <PokedexThumbnail url={pokemon.url} modal={this.props.modalOpen}/>)}</Grid>}
       </div>
     );
   }
@@ -117,7 +148,8 @@ class PokedexThumbnail extends Component {
   }
 
   handleOpenModal() {
-    this.setState({ showModal: true });
+    //this.setState({ showModal: true });
+    this.props.modal();
   }
 
   handleCloseModal() {
@@ -132,7 +164,7 @@ class PokedexThumbnail extends Component {
           <br />
           {this.state.response ? this.state.response.name: "loading"}
         </button>
-        {this.state.response &&
+        {/*this.state.response &&
           <Modal isOpen={this.state.showModal} onRequestClose={this.handleCloseModal} className="cardDark" id="cardDark" overlayClassName="overlay">
           <button id="closebutton" onClick={this.handleCloseModal}><img class="imageButton" src={closeButton} alt="close"/></button>
             <div id="cardheader">
@@ -150,7 +182,7 @@ class PokedexThumbnail extends Component {
             special defense: {this.state.response.stats[1].base_stat} <br/>
             speed: {this.state.response.stats[0].base_stat} <br/>
           </Modal>
-        }
+        */}
       </Grid>
     )
   }
