@@ -104,6 +104,8 @@ class App extends Component {
             special defense: {this.state.response.stats[1].base_stat} <br/>
             speed: {this.state.response.stats[0].base_stat} <br/>
             <br/>
+            <hr/>
+            <h3>evolutions</h3>
           </Modal>
           }
 
