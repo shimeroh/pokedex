@@ -106,6 +106,9 @@ class App extends Component {
             <br/>
             <hr/>
             <h3>evolutions</h3>
+            -
+            <br/>
+            <br/>
           </Modal>
           }
 
